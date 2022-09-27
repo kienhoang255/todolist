@@ -1,10 +1,12 @@
 import React from "react";
-import Header from "./Pages/Header/Header";
+import Body from "./Layout/Body/Body";
+import Header from "./Layout/Header/Header";
 
 function App() {
   return (
     <div className="App">
       <Header />
+      <Body />
     </div>
   );
 }
