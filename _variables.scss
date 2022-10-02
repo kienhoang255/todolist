@@ -1,0 +1,19 @@
+$bgColor: rgb(214, 214, 214);
+$border: 1px solid rgba(0, 0, 0, 0.4);
+$color-warning: rgba(255, 0, 0, 0.5);
+$color-highlight: #ff0;
+$blue-btn: #0079bf;
+
+//Mixin
+@mixin flexCenter($direction) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+}
+
+@mixin font($font-size: 14px, $font-weight: 400, $line-height: 20px) {
+  font-size: $font-size;
+  font-weight: $font-weight;
+  line-height: $line-height;
+}

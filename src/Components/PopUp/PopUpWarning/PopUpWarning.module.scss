@@ -1,0 +1,31 @@
+@import "../../../../variables";
+
+.content {
+  width: 200px;
+  height: auto;
+  background-color: white;
+  border-radius: 12px;
+  padding: 12px 0;
+  @include flexCenter(column);
+}
+
+.title {
+  @include font($font-weight: 700, $font-size: 16px, $line-height: 16px);
+}
+
+.normal {
+  width: 100%;
+  height: 32px;
+  @include flexCenter(column);
+}
+
+.danger {
+  @extend .normal;
+  height: 32px;
+  background-color: $color-warning;
+}
+
+.highlight {
+  @extend .normal;
+  background-color: $color-highlight;
+}

@@ -1,3 +1,5 @@
+@import "../../../variables";
+
 .content {
   width: 250px;
   background-color: white;
@@ -10,7 +12,7 @@
 .header {
   height: 40px;
   width: 90%;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  border-bottom: $border;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,6 +27,13 @@
   flex-direction: column;
   justify-content: center;
   padding: 4px 0;
+  input {
+    outline: none;
+    border: $border;
+    height: 24px;
+    border-radius: 5px;
+    margin-bottom: 2px;
+  }
   button {
     display: flex;
     align-self: flex-start;

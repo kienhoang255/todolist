@@ -1,8 +1,11 @@
+@import "./variables.scss";
+
 .container {
   width: 290px;
+  min-width: 290px;
   height: fit-content;
-  background-color: rgb(204, 204, 204);
-  border-radius: 6px;
+  background-color: $bgColor;
+  border-radius: 10px;
   margin: 10px;
   display: flex;
   flex-direction: column;
@@ -35,86 +38,21 @@
   }
 }
 .container-task {
-  max-height: 750px;
+  max-height: 700px;
   overflow: hidden;
   overflow-y: auto;
+  width: 100%;
   &::-webkit-scrollbar {
     -webkit-appearance: none;
   }
-  &::-webkit-scrollbar {
-    -webkit-appearance: vertical {
-      width: 11px;
-    }
-  }
   &::-webkit-scrollbar-thumb {
     background-color: gray;
-    border-left: 7px solid rgb(204, 204, 204);
+    border-radius: 6px;
   }
-}
-.content-item {
-  background-color: transparent;
-  width: 256px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.items {
-  width: 100%;
-  background-color: white;
-  padding: 5px;
-  border-radius: 5px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  margin: 5px;
-
-  .edit {
-    display: none;
+  &::-webkit-scrollbar {
+    width: 6px;
+    border-radius: 5px;
   }
-  &:hover {
-    // background-color: rgba(0, 0, 0, 0.04);
-    opacity: 0.6x;
-    .edit {
-      width: 26px;
-      height: 26px;
-      display: flex;
-      border-radius: 6px;
-      justify-content: center;
-      align-items: center;
-      margin: 8px;
-      &:hover {
-        background-color: rgba(0, 0, 0, 0.1);
-      }
-    }
-  }
-}
-
-.title-item {
-  width: 95%;
-  height: 50px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.detail {
-  width: 95%;
-  display: flex;
-  justify-self: flex-start;
-}
-
-.danger {
-  background-color: rgba(255, 0, 0, 0.5);
-}
-
-.normal {
-}
-
-.easy {
 }
 
 .add-task {
@@ -131,6 +69,7 @@
   justify-self: start;
   border-radius: 8px;
   margin-bottom: 10px;
+  margin-top: 10px;
   padding: {
     left: 10px;
     top: 10px;
@@ -147,7 +86,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
+  padding-top: 8px;
   textarea {
     width: 100%;
     height: 66px;
@@ -155,19 +94,18 @@
     border: none;
     outline: none;
     border-radius: 5px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    border-bottom: $border;
   }
 }
 
-.add-new-task {
+.btn-add-new {
   width: 100%;
   display: flex;
   padding: 8px 0;
-
   button {
     width: 82px;
     height: 35px;
-    background-color: #0079bf;
+    background-color: $blue-btn;
     color: white;
     border: none;
     border-radius: 5px;
