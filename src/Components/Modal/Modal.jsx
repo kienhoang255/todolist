@@ -21,11 +21,13 @@ export default function Modal({ children, setOpen, value, parentValue }) {
   const handleStopPropagation = (e) => {
     e.stopPropagation();
   };
+
   const find = state
     .filter(
       (e) => e.title === parentValue.title && e.task === parentValue.task
     )[0]
     .task.filter((e) => e.title === value.title)[0];
+
   function toggleModal() {
     handleDefault();
     setIsOpen(!isOpen);
@@ -33,10 +35,8 @@ export default function Modal({ children, setOpen, value, parentValue }) {
     console.log(value);
     console.log(find);
     // find.title = newTitle;
-    if (find !== value) {
-      dispatch({ type: "doAll", data: state });
-      console.log("change");
-    }
+    dispatch({ type: "doAll", data: state });
+    console.log("change");
   }
 
   const handleDefault = () => {
