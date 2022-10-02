@@ -1,9 +1,8 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import classNames from "classnames/bind";
 import styles from "./Header.module.scss";
 import Tippy from "@tippyjs/react";
-import { ListContext } from "../../App";
-import { type } from "@testing-library/user-event/dist/type";
+import { storeContext } from "../../store";
 
 const cx = classNames.bind(styles);
 
@@ -17,18 +16,11 @@ export default function Header() {
 
   const toDoList = {
     title: `${titleCard}`,
-    task: [
-      {
-        title: "",
-        status: "",
-        description: "",
-        warning: "",
-      },
-    ],
+    task: [],
   };
 
   const [popUp, setPopUp] = useState(false);
-  const [state, dispatch] = useContext(ListContext);
+  const [state, dispatch] = useContext(storeContext);
   const handleOnClick = (e) => {
     if (state !== null) {
       dispatch({ type: "addCard", data: toDoList });

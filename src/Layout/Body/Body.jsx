@@ -2,11 +2,11 @@ import React, { useContext } from "react";
 import classNames from "classnames/bind";
 import styles from "./Body.module.scss";
 import Task from "../../Components/Task/Task";
-import { ListContext } from "../../App";
+import { storeContext } from "../../store";
 const cx = classNames.bind(styles);
 
 export default function Body() {
-  const [state] = useContext(ListContext);
+  const [state] = useContext(storeContext);
 
   return (
     <div className={cx("container")}>

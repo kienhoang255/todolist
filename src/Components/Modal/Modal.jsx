@@ -4,7 +4,7 @@ import styles from "./Modal.module.scss";
 import { BsPencil } from "react-icons/bs";
 import { AiOutlineClose } from "react-icons/ai";
 import { CgDetailsMore } from "react-icons/cg";
-import { ListContext } from "../../App";
+import { storeContext } from "../../store";
 import { MdSubtitles } from "react-icons/md";
 import PopUpWarning from "../PopUp/PopUpWarning/PopUpWarning";
 
@@ -15,7 +15,7 @@ export default function Modal({ children, setOpen, value, parentValue }) {
   const [changeDescription, setChangeDescription] = useState(false);
   const [newTitle, setNewTitle] = useState(value.title);
   const [newDescription, setNewDescription] = useState(value.description);
-  const [state, dispatch] = useContext(ListContext);
+  const [state, dispatch] = useContext(storeContext);
   const [isOpen, setIsOpen] = useState(false);
 
   const handleStopPropagation = (e) => {

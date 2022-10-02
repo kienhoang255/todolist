@@ -6,12 +6,12 @@ import { AiOutlineClose, AiOutlinePlus } from "react-icons/ai";
 import ExpandPopUp from "../PopUp/ExpandPopUp";
 import Modal from "../Modal/Modal";
 import TaskItem from "../TaskItem/TaskItem";
-import { ListContext } from "../../App";
+import { storeContext } from "../../store";
 
 const cx = classNames.bind(styles);
 
 export default function Task({ items, index }) {
-  const [state, dispatch] = useContext(ListContext);
+  const [state, dispatch] = useContext(storeContext);
   const [newTask, setNewTask] = useState("");
   const [addTask, setTask] = useState(false);
   const task = {

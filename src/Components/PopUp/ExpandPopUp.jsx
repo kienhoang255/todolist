@@ -3,14 +3,14 @@ import React, { useContext, useState } from "react";
 import classNames from "classnames/bind";
 import styles from "./ExpandPopUp.module.scss";
 import "tippy.js/animations/scale.css";
-import { ListContext } from "../../App";
+import { storeContext } from "../../store";
 
 const cx = classNames.bind(styles);
 
 export default function ExpandPopUp({ children, index, title }) {
   const [rename, setRename] = useState(false);
   const [valueName, setValueName] = useState(title);
-  const [state, dispatch] = useContext(ListContext);
+  const [state, dispatch] = useContext(storeContext);
   const handleClear = () => {
     state.splice(index, 1);
     dispatch({ type: "delCard", data: state });
