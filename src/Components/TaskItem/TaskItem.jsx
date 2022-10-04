@@ -7,9 +7,9 @@ import Modal from "../Modal/Modal";
 
 const cx = classNames.bind(styles);
 
-export default function TaskItem({ element, parentValue }) {
+export default function TaskItem({ element, parentValue, index }) {
   return (
-    <Modal value={element} parentValue={parentValue}>
+    <Modal value={element} parentValue={parentValue} index={index}>
       <div className={cx("items", element.warning, element.status)}>
         <div className={cx("title-item")}>
           <div>{element.title}</div>

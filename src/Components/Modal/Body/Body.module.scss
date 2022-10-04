@@ -1,0 +1,117 @@
+@import "../../../../variables";
+$color: #172b4d;
+* {
+  color: $color;
+}
+.body {
+  width: 100%;
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 100%;
+  &-content {
+    width: 80%;
+  }
+
+  &-description-icon {
+    @include font($font-size: 18px, $font-weight: 400, $line-height: 18px);
+  }
+
+  &-description-text {
+    resize: none;
+    width: 90%;
+    height: 100px;
+    margin: 12px 0 0 38px;
+    padding: 5px 0 0 5px;
+    @include font($font-size: 14px, $font-weight: 400, $line-height: 14px);
+  }
+
+  &-description-action {
+    padding-top: 12px;
+    padding-left: 38px;
+  }
+
+  &-description-detail {
+    width: 90%;
+    height: 100px;
+    background-color: rgba(0, 0, 0, 0.06);
+    padding: 5px 0 0 5px;
+    margin-top: 12px;
+    margin-left: 38px;
+    @include font($font-size: 14px, $font-weight: 400, $line-height: 14px);
+  }
+
+  &-sidebar {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.select-warning {
+  height: 34px;
+  &::after {
+    background-color: aqua;
+  }
+}
+
+.danger {
+  background-color: $color-warning;
+}
+
+.highlight {
+  background-color: $color-highlight;
+}
+
+.complete-btn {
+  width: 100%;
+  height: 40px;
+  margin-top: 10px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.uncompleted {
+  background-color: $color-warning;
+}
+.complete {
+  background-color: $color-complete;
+}
+
+.delete-btn {
+  width: 100%;
+  height: 40px;
+  margin-top: 10px;
+  background-color: red;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  @include font($font-size: 18px, $font-weight: 400, $line-height: 18px);
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.cancel-btn,
+.save-btn {
+  width: 50px;
+  height: 35px;
+  background-color: $blue-btn;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  margin: 5px;
+  &:hover {
+    opacity: 0.8;
+  }
+}
+.cancel-btn {
+}

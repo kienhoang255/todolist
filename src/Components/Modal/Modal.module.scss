@@ -1,8 +1,5 @@
 @import "../../../variables";
 $color: #172b4d;
-* {
-  color: $color;
-}
 
 .container {
   @include flexCenter(column);
@@ -13,101 +10,15 @@ $color: #172b4d;
   bottom: 0;
   height: 100vh;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 .content {
   width: 600px;
   height: 750px;
-  background-color: white;
-  border-radius: 8px;
-  padding: 8px 12px;
-  display: flex;
-  flex-direction: column;
+  background-color: #f4f5f7;
+  border-radius: 2px;
+  padding: 16px;
   cursor: pointer;
-}
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 0;
-  &-btn {
-    @include font($font-size: 20px, $font-weight: 600, $line-height: 24px);
-    color: $color;
-    cursor: pointer;
-  }
-  &-title {
-    @include font($font-size: 20px, $font-weight: 600, $line-height: 24px);
-    color: $color;
-    display: flex;
-    cursor: pointer;
-    width: 100%;
-  }
-  &-text {
-    height: 38px;
-  }
-  .title {
-    display: flex;
-    flex-direction: column;
-    &-sub {
-      @include font();
-    }
-    &-main {
-      display: flex;
-      flex-direction: row;
-    }
-  }
-}
-
-.body {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  height: 100%;
-  &-content {
-    width: 80%;
-  }
-
-  &-description-icon {
-    @include font($font-size: 18px, $font-weight: 400, $line-height: 18px);
-    margin: 8px 0;
-  }
-
-  &-description-text {
-  }
-
-  &-description-action {
-  }
-
-  &-description-detail {
-    @include font($font-size: 16px, $font-weight: 300, $line-height: 16px);
-    margin: 0 20px;
-  }
-
-  &-sidebar {
-    width: 20%;
-  }
-}
-
-.footer {
-  display: flex;
-  align-self: flex-end;
-  &-cancel {
-    width: 90px;
-    height: 40px;
-    background-color: $blue-btn;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    text-align: center;
-    margin: 5px;
-    &:hover {
-      opacity: 0.8;
-    }
-  }
-
-  &-confirm {
-    @extend .footer-cancel;
-  }
+  @include flexCenter(column);
 }

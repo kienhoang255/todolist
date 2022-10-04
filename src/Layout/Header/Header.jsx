@@ -1,8 +1,8 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import classNames from "classnames/bind";
 import styles from "./Header.module.scss";
 import Tippy from "@tippyjs/react";
-import { storeContext } from "../../store";
+import { actions, useStore } from "../../store";
 
 const cx = classNames.bind(styles);
 
@@ -12,21 +12,18 @@ export default function Header() {
   let message =
     hour < 12 ? "Good Morning" : hour < 17 ? "Good Afternoon" : "Good Evening";
 
-  const [titleCard, setTitleCard] = useState();
+  const [titleCard, setTitleCard] = useState("");
 
   const toDoList = {
-    title: `${titleCard}`,
+    title_card: `${titleCard}`,
     task: [],
   };
 
   const [popUp, setPopUp] = useState(false);
-  const [state, dispatch] = useContext(storeContext);
+  const [state, dispatch] = useStore();
+
   const handleOnClick = (e) => {
-    if (state !== null) {
-      dispatch({ type: "addCard", data: toDoList });
-    } else {
-      dispatch({ type: "addFirst", data: toDoList });
-    }
+    dispatch(actions.addCard(toDoList));
     setTitleCard("");
     setPopUp(!popUp);
   };

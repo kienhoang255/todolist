@@ -110,6 +110,12 @@
     border: none;
     border-radius: 5px;
     text-align: center;
+    &:hover {
+      opacity: 0.8;
+    }
+    &:active {
+      background-color: lighten($blue-btn, 10%);
+    }
   }
 
   span {

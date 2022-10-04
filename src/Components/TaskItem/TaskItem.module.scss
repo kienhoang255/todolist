@@ -3,7 +3,6 @@
 .items {
   width: 90%;
   background-color: white;
-  // padding: 5px;
   border-radius: 5px;
   border-bottom: $border;
   display: flex;
@@ -11,12 +10,12 @@
   align-items: center;
   flex-direction: column;
   margin: 5px auto;
+  cursor: pointer;
 
   .edit {
     display: none;
   }
   &:hover {
-    // background-color: rgba(0, 0, 0, 0.04);
     opacity: 0.6x;
     .edit {
       width: 26px;
@@ -53,4 +52,9 @@
 
 .highlight {
   background-color: $color-highlight;
+}
+
+.complete {
+  opacity: 0.3;
+  cursor: default;
 }

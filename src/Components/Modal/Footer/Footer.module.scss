@@ -1,0 +1,27 @@
+@import "../../../../variables";
+$color: #172b4d;
+* {
+  color: $color;
+}
+
+.footer {
+  display: flex;
+  align-self: flex-end;
+  &-cancel {
+    width: 90px;
+    height: 40px;
+    background-color: $blue-btn;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    margin: 5px;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  &-confirm {
+    @extend .footer-cancel;
+  }
+}

@@ -1,35 +1,36 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import classNames from "classnames/bind";
 import styles from "./Task.module.scss";
 import { BsThreeDots } from "react-icons/bs";
 import { AiOutlineClose, AiOutlinePlus } from "react-icons/ai";
 import ExpandPopUp from "../PopUp/ExpandPopUp";
-import Modal from "../Modal/Modal";
 import TaskItem from "../TaskItem/TaskItem";
-import { storeContext } from "../../store";
+import { actions, useStore } from "../../store";
 
 const cx = classNames.bind(styles);
 
 export default function Task({ items, index }) {
-  const [state, dispatch] = useContext(storeContext);
+  const [state, dispatch] = useStore();
   const [newTask, setNewTask] = useState("");
   const [addTask, setTask] = useState(false);
+
   const task = {
     title: newTask,
     status: "uncompleted",
     description: "",
     warning: "normal",
   };
-  const handleAddNewTask = (e) => {
-    items.task.push(task);
-    state[index].task = items.task;
-    dispatch({ type: "doAll", data: state });
-    setNewTask("");
-    setTask(!addTask);
+
+  const handleAddNewTask = () => {
+    if (newTask !== "") {
+      dispatch(actions.addTask({ index: index, task: task }));
+      setNewTask("");
+      setTask(!addTask);
+    }
   };
 
   const handleKeyDown = (e) => {
-    if (e.key === "Enter") handleAddNewTask(e);
+    if (e.key === "Enter") handleAddNewTask();
   };
 
   const expandBtn = () => {
@@ -49,13 +50,20 @@ export default function Task({ items, index }) {
   return (
     <div className={cx("container")}>
       <div className={cx("title")}>
-        <span>{items.title}</span>
+        <span>{items.title_card}</span>
         {expandBtn()}
       </div>
 
       <div className={cx("container-task")}>
         {items.task.map((card, key) => {
-          return <TaskItem element={card} parentValue={items} key={key} />;
+          return (
+            <TaskItem
+              element={card}
+              parentValue={items}
+              key={key}
+              index={key}
+            />
+          );
         })}
       </div>
 

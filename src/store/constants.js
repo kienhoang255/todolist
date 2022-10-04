@@ -1,0 +1,9 @@
+export const ADD_CARD = "addCard";
+export const REMOVE_CARD = "removeCard";
+export const RENAME_CARD = "renameCard";
+export const ADD_TASK = "addTask";
+export const RENAME_TASK = "renameTask";
+export const CHANGE_DES_TASK = "changeDesTask";
+export const CHANGE_STATUS_TASK = "changeStatusTask";
+export const CHANGE_WARNING_TASK = "changeWarningTask";
+export const REMOVE_TASK = "removeTask";

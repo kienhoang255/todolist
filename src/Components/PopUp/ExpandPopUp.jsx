@@ -1,24 +1,23 @@
 import Tippy from "@tippyjs/react";
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import classNames from "classnames/bind";
 import styles from "./ExpandPopUp.module.scss";
 import "tippy.js/animations/scale.css";
-import { storeContext } from "../../store";
+import { actions, useStore } from "../../store";
 
 const cx = classNames.bind(styles);
 
 export default function ExpandPopUp({ children, index, title }) {
   const [rename, setRename] = useState(false);
   const [valueName, setValueName] = useState(title);
-  const [state, dispatch] = useContext(storeContext);
-  const handleClear = () => {
-    state.splice(index, 1);
-    dispatch({ type: "delCard", data: state });
+  const [state, dispatch] = useStore();
+
+  const handleRemove = () => {
+    dispatch(actions.removeCard(index));
   };
 
   const handleRename = () => {
-    state[index].title = valueName;
-    dispatch({ type: "renameCard", data: state });
+    dispatch(actions.renameCard({ index: index, nameTitle: valueName }));
     setRename(!rename);
   };
 
@@ -57,7 +56,7 @@ export default function ExpandPopUp({ children, index, title }) {
                 Đổi tên
               </button>
             )}
-            <button onClick={handleClear}>Xóa</button>
+            <button onClick={handleRemove}>Xóa</button>
           </div>
         </div>
       }
