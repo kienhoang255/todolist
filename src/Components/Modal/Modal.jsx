@@ -52,14 +52,6 @@ export default function Modal({
     }
   };
 
-  const onConfirm = () => {
-    // value.title = newTitle;
-    // value.description = newDescription;
-    // value.status = newStatus;
-    // value.warning = newWarning;
-    // console.log(newTitle, newDescription, newStatus, newWarning);
-  };
-
   return (
     <>
       {children && <div onClick={toggleModal}>{children}</div>}
@@ -102,7 +94,6 @@ export default function Modal({
               parentValue={parentValue}
               task={task}
               toggleModal={toggleModal}
-              onConfirm={onConfirm}
               newTitle={newTitle}
               newStatus={newStatus}
               newDescription={newDescription}

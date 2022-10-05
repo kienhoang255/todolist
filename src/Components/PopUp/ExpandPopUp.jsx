@@ -7,17 +7,25 @@ import { actions, useStore } from "../../store";
 
 const cx = classNames.bind(styles);
 
-export default function ExpandPopUp({ children, index, title }) {
+export default function ExpandPopUp({
+  children,
+  index,
+  title,
+  setOpenTippy,
+  openTippy,
+}) {
   const [rename, setRename] = useState(false);
   const [valueName, setValueName] = useState(title);
   const [state, dispatch] = useStore();
 
   const handleRemove = () => {
     dispatch(actions.removeCard(index));
+    setOpenTippy(false);
   };
 
   const handleRename = () => {
     dispatch(actions.renameCard({ index: index, nameTitle: valueName }));
+    setOpenTippy(false);
     setRename(!rename);
   };
 
@@ -26,9 +34,10 @@ export default function ExpandPopUp({ children, index, title }) {
     <Tippy
       interactive={true}
       placement="bottom-start"
-      trigger="click"
+      visible={openTippy}
       onClickOutside={() => {
         setRename(false);
+        setOpenTippy(false);
       }}
       content={
         <div className={cx("content")}>

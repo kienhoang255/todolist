@@ -9,7 +9,6 @@ export default function Footer({
   index,
   parentValue,
   toggleModal,
-  onConfirm,
   newTitle,
   newDescription,
   newWarning,
@@ -17,7 +16,6 @@ export default function Footer({
 }) {
   const [state, dispatch] = useContext(storeContext);
   const handleOnConfirm = () => {
-    onConfirm();
     dispatch(
       actions.renameTask({
         parentValue: parentValue,

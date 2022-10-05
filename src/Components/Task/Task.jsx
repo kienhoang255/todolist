@@ -13,6 +13,7 @@ export default function Task({ items, index }) {
   const [state, dispatch] = useStore();
   const [newTask, setNewTask] = useState("");
   const [addTask, setTask] = useState(false);
+  const [openTippy, setOpenTippy] = useState(false);
 
   const task = {
     title: newTask,
@@ -35,8 +36,18 @@ export default function Task({ items, index }) {
 
   const expandBtn = () => {
     return (
-      <ExpandPopUp index={index} title={items.title}>
-        <span className={cx("expand-icon")}>
+      <ExpandPopUp
+        index={index}
+        title={items.title}
+        openTippy={openTippy}
+        setOpenTippy={setOpenTippy}
+      >
+        <span
+          className={cx("expand-icon")}
+          onClick={() => {
+            setOpenTippy(true);
+          }}
+        >
           <BsThreeDots />
         </span>
       </ExpandPopUp>

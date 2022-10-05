@@ -74,7 +74,7 @@ export default function Header() {
           </Tippy>
         </div>
         <div>{message}</div>
-        <span>Hi! Nhân</span>
+        {/* <span>Hi! Nhân</span> */}
       </div>
     </div>
   );

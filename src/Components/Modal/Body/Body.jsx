@@ -129,7 +129,7 @@ export default function Body({
           })}
         </select>
         <button className={cx("complete-btn", newStatus)} onClick={onComplete}>
-          {complete ? "Hoàn thành" : "Chưa hoàn thành"}
+          {complete ? "Đã hoàn thành" : "Chưa hoàn thành"}
         </button>
         <button className={cx("delete-btn")} onClick={onRemove}>
           Xóa
