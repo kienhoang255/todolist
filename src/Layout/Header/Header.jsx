@@ -3,6 +3,7 @@ import classNames from "classnames/bind";
 import styles from "./Header.module.scss";
 import Tippy from "@tippyjs/react";
 import { actions, useStore } from "../../store";
+import { Button } from "react-bootstrap";
 
 const cx = classNames.bind(styles);
 
@@ -34,6 +35,18 @@ export default function Header() {
     }
   };
 
+  const handleExport = () => {
+    const element = document.createElement("a");
+    const file = new Blob([JSON.stringify(state)], {
+      type: "text/plain;charset=utf-8",
+    });
+
+    element.href = URL.createObjectURL(file);
+    element.download = "NewTodolist.txt";
+    document.body.appendChild(element);
+    element.click();
+  };
+
   return (
     <div className={cx("container")}>
       <div className={cx("content")}>
@@ -63,18 +76,18 @@ export default function Header() {
               </div>
             }
           >
-            <button
-              className={cx("btn-create")}
+            <Button
               onClick={() => {
                 setPopUp(true);
               }}
             >
               Tạo mới
-            </button>
+            </Button>
           </Tippy>
         </div>
-        <div>{message}</div>
-        {/* <span>Hi! Nhân</span> */}
+        <div className="ms-2 ">
+          <Button onClick={handleExport}>Xuất file Text</Button>
+        </div>
       </div>
     </div>
   );

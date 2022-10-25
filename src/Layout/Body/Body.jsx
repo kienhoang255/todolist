@@ -7,8 +7,7 @@ import { useStore } from "../../store";
 const cx = classNames.bind(styles);
 
 export default function Body() {
-  const [state] = useStore();
-
+  const [state, dispatch] = useStore();
   return (
     <div className={cx("container")}>
       <div className={cx("content")}>

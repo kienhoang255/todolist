@@ -29,11 +29,9 @@ export default function Task({ items, index }) {
       setTask(!addTask);
     }
   };
-
   const handleKeyDown = (e) => {
     if (e.key === "Enter") handleAddNewTask();
   };
-
   const expandBtn = () => {
     return (
       <ExpandPopUp

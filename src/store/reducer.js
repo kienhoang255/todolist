@@ -24,7 +24,20 @@ const removeTask = (state, parentTask, index) => {
   return initState;
 };
 
-const initialState = JSON.parse(localStorage.getItem("toDoListReact"));
+const initialState = JSON.parse(localStorage.getItem("toDoListReact")) || [
+  {
+    title_card: "To do",
+    task: [],
+  },
+  {
+    title_card: "Doing",
+    task: [],
+  },
+  {
+    title_card: "Complete",
+    task: [],
+  },
+];
 function reducer(state, action) {
   switch (action.type) {
     case ADD_CARD:

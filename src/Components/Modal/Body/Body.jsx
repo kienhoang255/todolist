@@ -4,6 +4,7 @@ import classNames from "classnames/bind";
 
 import { CgDetailsMore } from "react-icons/cg";
 import { actions, storeContext } from "../../../store";
+import ModalBT from "../../../Components/ModalBT";
 
 const cx = classNames.bind(styles);
 
@@ -57,19 +58,13 @@ export default function Body({
   };
 
   const onRemove = () => {
-    var answer = window.confirm(`Bạn muốn xóa ${value.title}`);
-    if (answer) {
-      dispatch(
-        actions.removeTask({
-          parentValue: parentValue,
-          index: index,
-        })
-      );
-      toggleModal();
-    } else {
-      console.log(dispatch);
-      return 0;
-    }
+    dispatch(
+      actions.removeTask({
+        parentValue: parentValue,
+        index: index,
+      })
+    );
+    toggleModal();
   };
 
   return (
@@ -131,9 +126,11 @@ export default function Body({
         <button className={cx("complete-btn", newStatus)} onClick={onComplete}>
           {complete ? "Đã hoàn thành" : "Chưa hoàn thành"}
         </button>
-        <button className={cx("delete-btn")} onClick={onRemove}>
-          Xóa
-        </button>
+        <ModalBT
+          className={cx("delete-btn")}
+          onRemove={onRemove}
+          text={"Xóa"}
+        />
       </div>
     </div>
   );
