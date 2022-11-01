@@ -8,11 +8,6 @@ import { Button } from "react-bootstrap";
 const cx = classNames.bind(styles);
 
 export default function Header() {
-  const time = new Date();
-  let hour = time.getHours();
-  let message =
-    hour < 12 ? "Good Morning" : hour < 17 ? "Good Afternoon" : "Good Evening";
-
   const [titleCard, setTitleCard] = useState("");
 
   const toDoList = {
@@ -77,6 +72,7 @@ export default function Header() {
             }
           >
             <Button
+              className={cx("btn-create")}
               onClick={() => {
                 setPopUp(true);
               }}
@@ -86,7 +82,9 @@ export default function Header() {
           </Tippy>
         </div>
         <div className="ms-2 ">
-          <Button onClick={handleExport}>Xuất file Text</Button>
+          <Button onClick={handleExport} className={cx("btn-create")}>
+            Xuất file Text
+          </Button>
         </div>
       </div>
     </div>
